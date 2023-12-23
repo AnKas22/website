@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Professional Website</title>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1; /* Place content on top of the background */
+    }
+
+    .header {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: #3498db;
+      transition: color 0.5s;
+    }
+
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .navbar a {
+      margin: 0 20px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: 2px solid #3498db;
+      border-radius: 5px;
+      transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #000;
+      background-color: #3498db;
+      border-color: #3498db;
+    }
+
+    /* Neon Purple Button */
+    .navbar .neon-purple {
+      border-color: #800080;
+    }
+
+    .navbar a.neon-purple:hover {
+      background-color: #800080;
+      border-color: #800080;
+    }
+
+    /* Dark Blue and Dark Purple Circles */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(0, 31, 63, 0.1); /* Dark Blue with 10% opacity */
+      z-index: 0; /* Move circles to the background */
+    }
+
+    .dark-blue { top: 20%; left: 10%; }
+    .dark-purple { top: 50%; left: 80%; }
+    .circle3 { top: 80%; left: 30%; }
+    .circle4 { top: 10%; left: 80%; }
+    .circle5 { top: 60%; left: 20%; }
+    .circle6 { top: 90%; left: 70%; }
+    .circle7 { top: 40%; left: 90%; }
+    .circle8 { top: 15%; left: 30%; }
+
+    /* Social Media Links */
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 50px;
+      z-index: 1; /* Ensure social media links are on top of the circles */
+    }
+
+    .social-box {
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      margin: 10px;
+      position: relative;
+    }
+
+    .social-box h3 {
+      margin-bottom: 10px;
+    }
+
+    .social-links a {
+      display: block;
+      margin: 10px 0;
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      transition: color 0.3s;
+      position: relative;
+      z-index: 1; /* Ensure links are on top of the shadow */
+    }
+
+    .social-links a:hover {
+      color: #3498db;
+    }
+
+    /* Stroke and Shadow */
+    .social-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid #3498db;
+      border-radius: 10px;
+      z-index: -1; /* Place behind the box */
+    }
+
+    /* Responsive Styles */
+    @media only screen and (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .social-links {
+        flex-direction: column;
+      }
+
+      .social-links a {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Dark Blue and Dark Purple Circles -->
+  <div class="circle dark-blue circle1"></div>
+  <div class="circle dark-purple circle2"></div>
+  <div class="circle dark-blue circle3"></div>
+  <div class="circle dark-purple circle4"></div>
+  <div class="circle dark-blue circle5"></div>
+  <div class="circle dark-purple circle6"></div>
+  <div class="circle dark-blue circle7"></div>
+  <div class="circle dark-purple circle8"></div>
+
+  <div class="content">
+    <div class="header" onmouseover="changeColor()" onmouseout="changeColorBack()">Welcome to My Official Website!</div>
+    <div class="navbar">
+      <a href="#social-media" class="neon-purple">Social Media</a>
+    </div>
+    <!-- Social Media Section -->
+    <div class="social-links" id="social-media">
+      <div class="social-box" id="instagram-box">
+        <h3>Instagram</h3>
+        <!-- Replace the href values with your actual Instagram profile links -->
+        <a href="https://www.instagram.com/ankas.gr/" target="_blank">User 1</a>
+        <a href="https://www.instagram.com/user2" target="_blank">User 2</a>
+        <a href="https://www.instagram.com/user3" target="_blank">User 3</a>
+      </div>
+
+      <div class="social-box" id="facebook-box">
+        <h3>Facebook</h3>
+        <!-- Replace the href values with your actual Facebook page links -->
+        <a href="https://www.facebook.com/page1" target="_blank">Page 1</a>
+        <a href="https://www.facebook.com/page2" target="_blank">Page 2</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function changeColor() {
+      document.querySelector('.header').style.color = '#9b59b6';
+    }
+
+    function changeColorBack() {
+      document.querySelector('.header').style.color = '#3498db';
+    }
+
+    // Function to toggle the visibility of the social media links
+    document.querySelector('.neon-purple').addEventListener('click', function () {
+      var socialMediaLinks = document.getElementById('social-media');
+      socialMediaLinks.style.display = (socialMediaLinks.style.display === 'none') ? 'flex' : 'none';
+    });
+  </script>
+</body>
+</html>
